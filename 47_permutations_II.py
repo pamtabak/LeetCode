@@ -2,17 +2,11 @@ class Solution:
     nodes = set()
     resultLists = []
 
-    def lstToStr(self, nums: List[int]):
-        lstStr = ""
-        for n in nums:
-            lstStr += str(n)
-        return lstStr
-
     def generateAllPermutations(self, nums: List[int], numsToBeUsed: List[int]):
         if (len(numsToBeUsed) == 0):
             self.resultLists.append(nums)
 
-        numsStr = self.lstToStr(nums)
+        numsStr = ','.join([str(x) for x in nums])
         if (numsStr in self.nodes):
             # it means there are duplicates in the array and we've already seen this node
             return
